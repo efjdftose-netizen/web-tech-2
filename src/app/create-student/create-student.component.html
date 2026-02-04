@@ -1,0 +1,44 @@
+<div class="header">HEADER LABEL</div>
+
+<div class="container">
+
+  <div class="form-group">
+    <label>Student ID</label>
+    <input type="text" [(ngModel)]="student.studentId" placeholder="Enter student ID">
+  </div>
+
+  <div class="form-group">
+    <label>First Name</label>
+    <input type="text" [(ngModel)]="student.firstName" placeholder="Enter first name">
+  </div>
+
+  <div class="form-group">
+    <label>Last Name</label>
+    <input type="text" [(ngModel)]="student.lastName" placeholder="Enter last name">
+  </div>
+
+  <div class="form-group">
+    <label>Email</label>
+    <input type="email" [(ngModel)]="student.email" placeholder="Enter email">
+  </div>
+
+  <div class="form-group">
+    <label>Age</label>
+    <input type="number" [(ngModel)]="student.age" placeholder="Enter age">
+  </div>
+
+  <div class="form-group">
+    <label>GPA</label>
+    <input type="text" [(ngModel)]="student.gpa" placeholder="Enter GPA">
+  </div>
+
+  <div class="form-group">
+    <label>Enrollment Status</label>
+    <input type="text" [(ngModel)]="student.enrollmentStatus" placeholder="Enter enrollment status">
+  </div>
+
+  <div class="actions">
+    <button (click)="back()">Back</button>
+    <button (click)="createStudent()">Create student</button>
+  </div>
+</div>

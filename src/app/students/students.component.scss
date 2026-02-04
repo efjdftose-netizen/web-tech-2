@@ -1,0 +1,140 @@
+  /* Import Google Font */
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+  /* Reset & Base Styles */
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  body {
+    background-color: #f9f9f9;
+    color: #333;
+  }
+
+  /* Header */
+  .header {
+    background-color: #f1f1f1;
+    padding: 25px 20px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 24px;
+    color: #333;
+    border-bottom: 1px solid #ccc;
+  }
+
+  /* Container */
+  .container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 30px auto;
+  }
+
+  /* Title Bar */
+  .title-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+  }
+
+  .title-bar h2 {
+    font-size: 22px;
+    font-weight: 600;
+    color: #333;
+  }
+.add-btn {
+  padding: 8px 18px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-left: 10px; /* ensures button doesn’t touch the heading on small screens */
+}
+
+.add-btn:hover {
+  background-color: #45a049;
+  transform: translateY(-2px);
+}
+
+  /* Student List (flex wrap) */
+  .student-list {
+    display: flex;
+    flex-wrap: wrap;       /* allow cards to wrap */
+    gap: 50px;             /* spacing between cards */
+    justify-content: center; /* center cards */
+  }
+
+  /* Student Card */
+  .student-card {
+    background-color: #ffffff;
+    padding: 18px 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    width: 100%;             /* default full width on small screens */
+    max-width: 300px;        /* card max width */
+    position: relative;
+  }
+
+  .student-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.12);
+  }
+
+  .student-card h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #333;
+  }
+
+  .student-card p {
+    font-size: 14px;
+    color: #555;
+    margin: 4px 0;
+    line-height: 1.4;
+  }
+
+  /* Delete Button */
+  .delete-btn {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    padding: 5px 10px;
+    font-size: 12px;
+    font-weight: 500;
+    border: none;
+    background-color: #f44336;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+
+  .delete-btn:hover {
+    background-color: #d32f2f;
+    transform: translateY(-1px);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .container {
+      width: 95%;
+    }
+
+    .student-card {
+      max-width: 100%;
+    }
+
+    .title-bar {
+      flex-direction: column;
+      gap: 10px;
+      align-items: flex-start;
+    }
+  }

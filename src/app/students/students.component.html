@@ -1,0 +1,36 @@
+<div class="page-container">
+
+  <!-- Header -->
+  <header class="header">
+    <h1>Student Management</h1>
+  </header>
+
+  <!-- Content -->
+  <section class="content">
+
+    <div class="content-header">
+      <h2>List of Students</h2>
+
+      <!-- Uses existing routing -->
+     <button class="add-btn" (click)="goToCreateStudent()">
+  Add Student
+</button>
+    </div>
+
+    <!-- Student Cards -->
+    <div class="student-list">
+
+      <div class="student-card" *ngFor="let student of students">
+        <div class="student-info">
+          <h3>{{ student.name }}</h3>
+          <p><strong>Course:</strong> {{ student.course }}</p>
+          <p><strong>Year Level:</strong> {{ student.year }}</p>
+        </div>
+
+        <button class="delete-btn">Delete</button>
+      </div>
+
+    </div>
+
+  </section>
+</div>
