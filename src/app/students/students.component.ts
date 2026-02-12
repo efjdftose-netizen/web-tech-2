@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, signal, Signal, WritableSignal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { StudentsService } from '../../services/students/students.service';
+import { GetStudent } from '../../models/student.model';
 
 @Component({
   selector: 'app-students',
@@ -9,18 +11,28 @@ import { Router } from '@angular/router';
   templateUrl: './students.component.html',
   styleUrls: ['./students.component.scss']
 })
-export class StudentsComponent {
+export class StudentsComponent implements OnInit {
 
-  students = [
-    { name: 'John Doe', course: 'Computer Science', year: '2nd Year' },
-    { name: 'Jane Smith', course: 'Information Technology', year: '3rd Year' },
-    { name: 'Mike Johnson', course: 'Software Engineering', year: '1st Year' }
-  ];
+  students: WritableSignal<GetStudent[]> = signal([]);
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private studentsService: StudentsService) {}
+
+  ngOnInit(): void {
+    this.loadStudents();
+  }
+
+  loadStudents() {
+    this.studentsService.getStudents().subscribe((data) => this.students.set(data));
+  }
 
   goToCreateStudent() {
     this.router.navigate(['/students/create']);
+  }
+
+  deleteStudent(studentId: number) {
+    this.studentsService.deleteStudent(studentId).subscribe(() => {
+      this.students.set(this.students().filter(s => s.id !== studentId));
+    });
   }
 
 }

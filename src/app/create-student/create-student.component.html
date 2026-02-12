@@ -1,44 +1,47 @@
-<div class="header">HEADER LABEL</div>
+<div class="header">Create Student</div>
 
-<div class="container">
-
-  <div class="form-group">
-    <label>Student ID</label>
-    <input type="text" [(ngModel)]="student.studentId" placeholder="Enter student ID">
-  </div>
+<form [formGroup]="form" class="container" (ngSubmit)="createStudent()">
 
   <div class="form-group">
     <label>First Name</label>
-    <input type="text" [(ngModel)]="student.firstName" placeholder="Enter first name">
+    <input type="text" formControlName="first_name" placeholder="Enter first name">
+    <div *ngIf="form.get('first_name')?.touched && form.get('first_name')?.invalid">First name is required.</div>
   </div>
 
   <div class="form-group">
     <label>Last Name</label>
-    <input type="text" [(ngModel)]="student.lastName" placeholder="Enter last name">
+    <input type="text" formControlName="last_name" placeholder="Enter last name">
+    <div *ngIf="form.get('last_name')?.touched && form.get('last_name')?.invalid">Last name is required.</div>
   </div>
 
   <div class="form-group">
     <label>Email</label>
-    <input type="email" [(ngModel)]="student.email" placeholder="Enter email">
+    <input type="email" formControlName="email" placeholder="Enter email">
+    <div *ngIf="form.get('email')?.touched && form.get('email')?.invalid">A valid email is required.</div>
   </div>
 
   <div class="form-group">
     <label>Age</label>
-    <input type="number" [(ngModel)]="student.age" placeholder="Enter age">
+    <input type="number" formControlName="age" placeholder="Enter age">
+  </div>
+
+  <div class="form-group">
+    <label>Course</label>
+    <input type="text" formControlName="course" placeholder="Enter course">
+  </div>
+
+  <div class="form-group">
+    <label>Year Level</label>
+    <input type="number" formControlName="year_level" placeholder="Enter year level">
   </div>
 
   <div class="form-group">
     <label>GPA</label>
-    <input type="text" [(ngModel)]="student.gpa" placeholder="Enter GPA">
-  </div>
-
-  <div class="form-group">
-    <label>Enrollment Status</label>
-    <input type="text" [(ngModel)]="student.enrollmentStatus" placeholder="Enter enrollment status">
+    <input type="number" step="0.01" formControlName="gpa" placeholder="Enter GPA">
   </div>
 
   <div class="actions">
-    <button (click)="back()">Back</button>
-    <button (click)="createStudent()">Create student</button>
+    <button type="button" (click)="back()">Back</button>
+    <button type="submit">Create student</button>
   </div>
-</div>
+</form>

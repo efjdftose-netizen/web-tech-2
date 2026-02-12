@@ -20,14 +20,17 @@
     <!-- Student Cards -->
     <div class="student-list">
 
-      <div class="student-card" *ngFor="let student of students">
+      <div class="student-card" *ngFor="let student of students()">
         <div class="student-info">
-          <h3>{{ student.name }}</h3>
+          <h3>{{ student.first_name }} {{ student.last_name }}</h3>
           <p><strong>Course:</strong> {{ student.course }}</p>
-          <p><strong>Year Level:</strong> {{ student.year }}</p>
+          <p><strong>Year Level:</strong> {{ student.year_level }}</p>
+          <p><strong>Email:</strong> {{ student.email }}</p>
+          <p><strong>GPA:</strong> {{ student.gpa }}</p>
+          <p><strong>Status:</strong> {{ student.enrollment_status }}</p>
         </div>
 
-        <button class="delete-btn">Delete</button>
+        <button class="delete-btn" (click)="deleteStudent(student.id)">Delete</button>
       </div>
 
     </div>
